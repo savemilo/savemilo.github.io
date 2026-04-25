@@ -1,0 +1,174 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .terminal-outer {
+    background: #000;
+    min-height: 620px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Share Tech Mono', 'Courier New', monospace;
+    padding: 3rem 1rem;
+    position: relative;
+  }
+  .scanlines {
+    position: absolute; inset: 0; pointer-events: none;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 3px,
+      rgba(0,0,0,0.18) 3px,
+      rgba(0,0,0,0.18) 4px
+    );
+    z-index: 2;
+  }
+  .flicker {
+    position: absolute; inset: 0; pointer-events: none;
+    background: rgba(255,255,255,0.012);
+    animation: flicker 6s infinite;
+    z-index: 3;
+  }
+  @keyframes flicker {
+    0%,94%,100%{opacity:1}
+    95%{opacity:0.82}
+    96%{opacity:1}
+    97%{opacity:0.88}
+    99%{opacity:1}
+  }
+  .terminal-content {
+    position: relative; z-index: 4;
+    text-align: left;
+    max-width: 720px;
+    width: 100%;
+    padding: 2.5rem 2rem;
+    border: 1px solid rgba(0,200,0,0.2);
+    background: rgba(0,6,0,0.6);
+  }
+  .title-bar {
+    color: rgba(0,200,0,0.5);
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .divider {
+    border: none;
+    border-top: 1px solid rgba(0,200,0,0.2);
+    margin: 1rem 0;
+  }
+  .section-label {
+    color: rgba(0,200,0,0.45);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .block { margin-bottom: 1.6rem; }
+  .main-text {
+    color: #00cc00;
+    font-size: 15px;
+    line-height: 1.85;
+    text-shadow: 0 0 5px #00cc0044;
+    letter-spacing: 0.3px;
+  }
+  .highlight {
+    color: #00ff88;
+    font-size: 15px;
+    text-shadow: 0 0 7px #00ff8866;
+  }
+  .dim {
+    color: #007700;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .cursor {
+    display: inline-block;
+    width: 9px; height: 15px;
+    background: #00cc00;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+    margin-left: 3px;
+    box-shadow: 0 0 5px #00cc00;
+  }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  .footer {
+    color: rgba(0,160,0,0.3);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-top: 1.2rem;
+  }
+  .stamp {
+    display: inline-block;
+    border: 1px solid rgba(0,200,0,0.35);
+    color: rgba(0,200,0,0.55);
+    font-size: 10px;
+    letter-spacing: 2px;
+    padding: 2px 10px;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+  }
+</style>
+
+<div class="terminal-outer">
+  <div class="scanlines"></div>
+  <div class="flicker"></div>
+
+  <!--
+    MORSE CODE MESSAGE:
+    - .... . .-. . ... / ... --- -- . - .... .. -. --. / -.-- --- ..- / -.. --- -. .----. - / -.- -. --- .-- .-.-.-
+    DECODED: THERES SOMETHING YOU DONT KNOW.
+
+    Why is a corporation from galaxy 67-NO55 contacting you?
+    Think carefully.
+  -->
+
+  <div class="terminal-content">
+    <div class="title-bar">SAVEMILO.ORG &nbsp;|&nbsp; ZYGON &amp; CO. INTERPLANETARY RELAY &nbsp;|&nbsp; ENCRYPTED</div>
+    <hr class="divider">
+
+    <div class="block">
+      <div class="section-label">&gt; WHO WE ARE</div>
+      <div class="stamp">OFFICIAL COMMUNIQUÉ — ZYGON &amp; CO.</div>
+      <div class="main-text">
+        We are <span class="highlight">Zygon &amp; Co.</span>, a corporation operating from the planet <span class="highlight">Zygon</span>, located in galaxy <span class="highlight">67-NO55</span>.<br><br>
+        Our purpose is simple: we broker deals across planets. Resources, specimens, information — we trade what others cannot. We have been operating for longer than your civilization has had written language. We are not your enemy. We are a business.
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="block">
+      <div class="section-label">&gt; WHY YOU ARE RECEIVING THIS</div>
+      <div class="main-text">
+        One of your kind — <span class="highlight">Samuel Rapier</span>, a Terran from Texas, USA — drew our attention through repeated displays of aggression that violated interplanetary behavioral thresholds.<br><br>
+        As per standard protocol under <span class="highlight">Zygon Accord VII</span>, when a Terran individual surpasses the aggression index, we are authorized to seize an asset of personal significance.<br><br>
+        In this case, that asset is <span class="highlight">Milo</span> — Samuel Rapier's pet.
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="block">
+      <div class="section-label">&gt; THE INITIATIVE</div>
+      <div class="main-text">
+        Milo's release is conditional. We are offering members of your planet the opportunity to participate in the <span class="highlight">Zygon &amp; Co. Initiative</span> — a collaborative retrieval effort.<br><br>
+        You are almost ready to join. We require one final thing from you. <span class="dim">Wait until the search starts.</span>
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="dim" style="text-align:center;">
+      THE SEARCH ENDS: JULY 6, 2026 &nbsp;|&nbsp; STARTS: MAY 5, 2026
+    </div>
+
+    <div class="footer">
+      SYS&gt; ZYGON RELAY CHANNEL OPEN — STANDING BY_<span class="cursor"></span>
+    </div>
+  </div>
+</div>
